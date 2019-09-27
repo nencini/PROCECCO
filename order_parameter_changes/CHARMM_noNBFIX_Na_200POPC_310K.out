@@ -1,0 +1,17 @@
+# order parameters, calculated using script of J.Melcr "calcOrderParameters.py", using Bayesian statistics
+
+#1 concentration [mM] of ions in bulk calculated from density profile, using "c=number_density/0.6022*1000"
+#2 alpha1 order parameter, atoms C11 H11A
+#3 alpha2 order parameter, atoms C11 H11B
+#4 beta1 order parameter, atoms C12 H12A
+#5 beta2 order parameter, atoms C12 H12B
+#6 error estimation of alpha1
+#7 error estimation of alpha2
+#8 error estimation of beta1
+#9 error estimation of beta2
+#10 water-ion concentration
+
+
+0.00000 0.03618 0.03289 -0.07626 -0.07640 0.00116 0.00116 0.00106 0.00106 0
+32.00000 0.03462 0.03104 -0.07688 -0.07398 0.00129 0.00129 0.00118 0.00119 56
+998.00000 0.01495 0.01562 -0.09597 -0.09529 0.00093 0.00093 0.00085 0.00085 943

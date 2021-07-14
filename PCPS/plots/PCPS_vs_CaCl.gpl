@@ -1,0 +1,89 @@
+set size 2.0,1.0
+set terminal postscript portrait enhanced color dashed lw 1 "Helvetica" 20 background rgb 'white'
+set output "PCPS_vs_CaCl2.eps"
+set multiplot  layout 2,2
+
+set xrange [-0.05:3.05]
+set xtics nomirror
+set ytics 0.1
+set mytics 2
+#set key box linestyle 1 linecolor rgb 'black'
+set key at screen 0.92,0.46 maxcols 1 maxrows 10 font "Helvetica, 16" invert
+
+set title 'POPC' offset 0,0.45
+set size 1.0,0.5
+set label 100 "{{/Symbol D}S@{^{/Symbol b}}_{CH}" at graph -0.16,0.6 center rotate by 90
+#set yrange [-0.075:-0.025] 
+plot [-0.05:3.05][:0.05] \
+           "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($4+0.06335) with linespoint title 'PROCECCO' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($4+0.06335):($8+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+  "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($5+0.06189) with linespoint notitle 'MacRog' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($5+0.06189):($9+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+   	   "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($6+0.06936) with linespoint title 'CHARMM36 NBfix2' pt 6 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+      	   "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($8+0.07126) with linespoint notitle pt 7 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+           "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($6+0.07985) with linespoint title 'CHARMM36 NBfix1' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+      	   "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($6+0.07985):7 with yerrorbars notitle pt 7 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+      	   "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($8+0.07984) with linespoint notitle pt 7 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+      	   "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($8+0.07984):9 with yerrorbars notitle pt 7 lt 1 lw 4 ps 1.5 lc rgb '#0088BF',\
+            "../final_dat_data/POPC_POPSwithCaBETA.dat" using 1:((-1)*($2-4.0)*0.00784) with linespoint title 'Experiment' pt 7 ps 1.5 lt 1 lw 4 lc rgb 'black',\
+
+
+
+
+set title 'POPS' offset 0,0.45
+set origin 1.0,0.5
+set size 1.0,0.5
+unset label 100
+#set ylabel "{/Symbol D}S_{CH}^{/Symbol b}"
+set xrange [-0.02:1.02] 
+plot          "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($4+0.14098) with linespoint notitle 'PROCECCO' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($4+0.14098):($8+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+ '#00A368',\
+     "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($14+0.14008) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+          "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($14+0.14008):15 with yerrorbars notitle pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+          "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($14+0.12138) with linespoint notitle pt 6 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+          "../final_dat_data/POPS20_POPCwithCaBETA.dat" using 1:((-1)*($2-12.6411468615)*0.00784) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4 lc rgb 'black',\
+
+
+unset title
+set size 1.0,0.5
+set key at screen 0.95,0.9 maxcols 1 maxrows 10
+set label 100 "{{/Symbol D}S@{^{/Symbol a}}_{CH}" at graph -0.16,0.6 center rotate by 90
+set xlabel "[ CaCl_2 ] (M)"
+plot [-0.05:3.05][-0.25:0.1] \
+  "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($2-0.02419) with linespoint notitle 'PROCECCO' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($2-0.02419):($6+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+  "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($3-0.02349) with linespoint notitle 'MacRog' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPC_order_parameters_20PS_Ca.dat" using 1:($3-0.02349):($7+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+          "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($2-0.03823) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($2-0.03823):3 with yerrorbars notitle pt 7 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($4-0.03266) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($4-0.03266):5 with yerrorbars notitle pt 7 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($2-0.03699) with linespoint notitle pt 6 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($4-0.03573) with linespoint notitle pt 6 ps 1.5 lt 1 lw 4 lc rgb '#0088BF',\
+      "../final_dat_data/POPC_POPSwithCaALPHA.dat" using 1:(($3)*0.00784) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4  lc rgb 'black',\
+
+unset title
+set origin 1.0,0
+set size 1.0,0.5
+set key at screen 0.9,0.87 maxcols 1 maxrows 6
+unset label 100
+#set ylabel "{/Symbol D}S_{CH}^{/Symbol a}"
+#set xlabel "[ CaCl_2] M"
+set xrange [-0.02:1.02] 
+#set yrange [-0.03:0.09] 
+plot  "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($2+0.08431) with linespoint notitle 'PROCECCO' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($2+0.08431):($6+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+  "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($3+0.08431) with linespoint notitle 'MacRog' pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+           "../final_dat_data/POPS_order_parameters_20PS_Ca.dat" using 1:($3+0.08431):($7+0.00074) with yerrorbars notitle  pt 7 lt 1 lw 4 ps 1.5 lc rgb '#00A368',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($10+0.10749) with linespoint notitle   pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($10+0.10749):11 with yerrorbars notitle   pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($12+0.10749) with linespoint notitle   pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50withCa_CHARMM36.dat" using 1:($12+0.10749):13 with yerrorbars notitle   pt 7 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($10+0.09045) with linespoint notitle   pt 6 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+      "../final_dat_data/POPC250_POPS50_contraNa_withCa_CHARMM36_NBFIX_Han.dat" using 1:($12+0.09045) with linespoint notitle   pt 6 ps 1.5 lt 1 lw 4  lc rgb '#0088BF',\
+       "../final_dat_data/POPS20_POPCwithCaALPHA1.dat" using 1:(($2-1.71790295675)*0.00784) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4  lc rgb 'black',\
+      "../final_dat_data/POPS20_POPCwithCaALPHA2.dat" using 1:((-1)*($2-1.71790295675)*0.00784) with linespoint notitle pt 7 ps 1.5 lt 1 lw 4  lc rgb 'black',\
+
+
+unset multiplot

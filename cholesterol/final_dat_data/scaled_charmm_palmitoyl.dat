@@ -1,3 +1,9 @@
+#order parameters calculated from CHARMM36 simulations
+#palmitoyl - sn1 chain
+#1 carbon number from the glycerol backbone
+#2, #3 pure POPC sysem, OP of two hydrogen-carbon bonds
+#4, %, 50:50 POPC cholesterol, OP of the two hydrogen-carbon bonds
+
 2	-0.22849	-0.20683	-0.27719	-0.26537
 3	-0.18169	-0.17372	-0.29671	-0.28743
 4	-0.21148	-0.21093	-0.34401	-0.34218

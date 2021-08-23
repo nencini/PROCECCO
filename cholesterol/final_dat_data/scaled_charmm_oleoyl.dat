@@ -1,4 +1,4 @@
-#order parameters calculated from CHARMM36 simulations
+#order parameters calculated from prosECCo75 - CHARMM36 simulations
 #oleoyl - sn2 chain
 #1 carbon number from the glycerol backbone
 #2, #3 pure POPC sysem, OP of two hydrogen-carbon bonds

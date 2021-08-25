@@ -1,3 +1,4 @@
+#prosECCo75 data for pure POPS bilayer, 298 K
 # OP_name    resname    atom1    atom2    OP_mean   OP_stddev   OP_err.est. 95% 
 #--------------------------------------------------------------------------------------------
 1 be1PS      POPS    C12   H12A  -0.13728  0.38110  0.00088 

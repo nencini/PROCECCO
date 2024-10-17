@@ -1,3 +1,6 @@
+#1 Ca concentration mM
+#2 order parameter change calculated from quadrupolar splitting from https://doi.org/10.1021/bi00312a019
+
 0 0
 350 -0.0169048
 1000 -0.0200464
